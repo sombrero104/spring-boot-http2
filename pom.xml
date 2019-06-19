@@ -18,18 +18,18 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <!--<exclusions>
+            <exclusions>
                 <exclusion>
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-starter-tomcat</artifactId>
                 </exclusion>
-            </exclusions>-->
+            </exclusions>
         </dependency>
 
-        <!--<dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-undertow</artifactId>
-        </dependency>-->
+        </dependency>
     </dependencies>
 
     <build>
@@ -43,5 +43,11 @@
             </plugin>
         </plugins>
     </build>
+
+    <!-- 버전 변경하는 방법
+    <properties>
+        <java.version>1.9</java.version>
+        <tomcat.version>9.0.10</tomcat.version>
+    </properties>-->
 
 </project>

@@ -1,12 +1,12 @@
 package sombrero;
 
-import org.apache.catalina.connector.Connector;
-import org.apache.catalina.startup.Tomcat;
+/*import org.apache.catalina.connector.Connector;
+import org.apache.catalina.startup.Tomcat;*/
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
+/*import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
-import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Bean;*/
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -59,7 +59,7 @@ public class Application {
      * 위에서 설정한 HTTPS를 받는 커넥터가 하나밖에 없기 때문에
      * 커넥터를 하나 더 생성 (http를 받는 커넥터)
      */
-    @Bean
+    /*@Bean
     public ServletWebServerFactory serverFactory() {
         TomcatServletWebServerFactory tomcat = new TomcatServletWebServerFactory();
         tomcat.addAdditionalTomcatConnectors(ceateStandardConnector());
@@ -70,7 +70,7 @@ public class Application {
         Connector connector = new Connector("org.apache.coyote.http11.Http11NioProtocol");
         connector.setPort(8080);
         return connector;
-    }
+    }*/
 
 
     /**
@@ -82,5 +82,20 @@ public class Application {
      * curl -I -k --http2 https://localhost:8443/hello
      *
      *
+     */
+
+
+    /**
+     *
+     * server.http2.enabled=true
+     * 사용 옵션을 추가한 후
+     * 서블릿 컨테이너를 undertow로 실행하면
+     * 아래처럼 HTTP/2 결과가 나옴.
+     *
+     * (base) sombrero104ui-MacBookPro:springboothttps sombrero104$ curl -I -k --http2 https://localhost:8443/hello
+     * HTTP/2 200
+     * content-type: text/plain;charset=UTF-8
+     * content-length: 13
+     * date: Wed, 19 Jun 2019 13:12:58 GMT
      */
 }
